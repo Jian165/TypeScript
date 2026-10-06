@@ -39,12 +39,17 @@ type LoggerCallback = (s1:string,s2:string) => string;
 function setLoggerTimeouts(loggerCallback:LoggerCallback,delay:number){
 }
 
-export type SupportResponse  = (name:string) => string;
+export type SupportResponse = (name: string) => string;
 
-export function greetCustomer(supportRespose:SupportResponse, age: number) {
-  return `Hello ${supportRespose("Mark")}, welcome to Support.ai! How can I assist you today?`;
-}
+export const greetCustomer: SupportResponse = (name) => {
+  return `Hello ${name}, welcome to Support.ai! How can I assist you today?`;
+};
 
-export function farewellCustomer(supportRespose:SupportResponse): string {
-  return `Goodbye ${supportRespose("Mark")}, have a great day!`;
-}
+export const farewellCustomer: SupportResponse = (name) => {
+  return `Goodbye ${name}, have a great day!`;
+};
+
+// Importing types 
+// import { User, Post } from "./models";
+// import type { User, Post } from "./models";
+// import { type User, type Post } from "./models";
